@@ -1,147 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NoisLab</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+---
+layout: page
+title: Team
+heading: Our Team
+active: team
+---
 
-<header>
-  <div class="container">
-    <h1><a href="index.html" style="color:#fff;text-decoration:none;">NoisLab</a></h1>
-    <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('open')" aria-label="Menu">☰</button>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="team.html" class="active">Team</a>
-      <a href="publications.html">Publications</a>
-      <a href="news.html">News</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<div class="page-header"><h2>Our Team</h2></div>
-
-<!-- ============================================================
-     ADD/REMOVE MEMBERS: copy a <div class="member"> block.
-     For photos: put images in img/ and use src="img/name.jpg"
-     ============================================================ -->
+{% comment %} Edit people in _data/team.yml — no HTML needed. {% endcomment %}
+{% for group in site.data.team %}
+{% if group.members and group.members.size > 0 %}
 <section>
   <div class="container">
-    <h2 class="section-title">Principal Investigator</h2>
-    <p class="section-subtitle"></p>
+    <h2 class="section-title">{{ group.group }}</h2>
     <div class="team-grid">
+      {% for m in group.members %}
       <div class="member">
-        <img src="https://api.dicebear.com/9.x/initials/svg?seed=PI&backgroundColor=1a5276" alt="PI">
-        <h3>Dr. Vicente Medel</h3>
-        <div class="role">Associate Professor</div>
+        <img src="{% if m.photo %}{{ m.photo | relative_url }}{% else %}https://api.dicebear.com/9.x/initials/svg?seed={{ m.name | url_encode }}&backgroundColor=1a5276{% endif %}" alt="{{ m.name }}">
+        <h3>{{ m.name }}</h3>
+        <div class="role">{{ m.role }}</div>
+        {% if m.links %}
         <div class="links">
-          <a href="https://scholar.google.com/citations?user=MuAn7LkAAAAJ">Scholar</a> · <a href="mailto:vicente.medel@gmail.com">Email</a>
+          {% for link in m.links %}<a href="{{ link.url }}">{{ link.label }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}
         </div>
+        {% endif %}
       </div>
+      {% endfor %}
     </div>
   </div>
 </section>
-
-<section>
-  <div class="container">
-    <h2 class="section-title">Postdocs</h2>
-    <p class="section-subtitle"></p>
-    <div class="team-grid">
-      <div class="member">
-        <img src="https://api.dicebear.com/9.x/initials/svg?seed=JS&backgroundColor=2e86c1" alt="Postdoc">
-        <h3>Karla</h3>
-        <div class="role">Postdoctoral Researcher</div>
-        <div class="links"><a href="#">Scholar</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <h2 class="section-title">PhD Students</h2>
-    <p class="section-subtitle"></p>
-    <div class="team-grid">
-      <div class="member">
-        <img src="https://api.dicebear.com/9.x/initials/svg?seed=MG&backgroundColor=2874a6" alt="PhD">
-        <h3>Tomás Bosch</h3>
-        <div class="role">PhD Student</div>
-        <div class="links"><a href="#">Scholar</a></div>
-      </div>
-      <div class="member">
-        <img src="https://api.dicebear.com/9.x/initials/svg?seed=AL&backgroundColor=1b4f72" alt="PhD">
-        <h3>Ana</h3>
-        <div class="role">PhD Student</div>
-        <div class="links"><a href="#">Scholar</a></div>
-      </div>
-        <div class="member">
-        <img src="https://api.dicebear.com/9.x/initials/svg?seed=AL&backgroundColor=1b4f72" alt="PhD">
-        <h3>Pato</h3>
-        <div class="role">PhD Student</div>
-        <div class="links"><a href="#">Scholar</a></div>
-      </div>
-      </div class="member">
-        <img src="https://api.dicebear.com/9.x/initials/svg?seed=AL&backgroundColor=1b4f72" alt="PhD">
-        <h3>...</h3>
-        <div class="role">PhD Student</div>
-        <div class="links"><a href="#">Scholar</a></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <h2 class="section-title">Master's Students</h2>
-    <p class="section-subtitle"></p>
-    <div class="team-grid">
-      <div class="member">
-        <img src="https://api.dicebear.com/9.x/initials/svg?seed=JS&backgroundColor=2e86c1" alt="Postdoc">
-        <h3>Lukas</h3>
-        <div class="role">MSc Student</div>
-        <div class="links"><a href="#">Scholar</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <h2 class="section-title">Undergraduate Students</h2>
-    <p class="section-subtitle"></p>
-    <div class="team-grid">
-      <div class="member">
-        <img src="https://api.dicebear.com/9.x/initials/svg?seed=JS&backgroundColor=2e86c1" alt="Postdoc">
-        <h3>Pipo</h3>
-        <div class="role">Undergrad Student</div>
-        <div class="links"><a href="#">Scholar</a></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <h2 class="section-title">Alumni</h2>
-    <p class="section-subtitle">Former members</p>
-    <div class="team-grid">
-      <div class="member">
-        <img src="https://api.dicebear.com/9.x/initials/svg?seed=RB&backgroundColor=7f8c8d" alt="Alumni">
-        <h3>whoever</h3>
-        <div class="role"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <p>&copy; 2026 NoisLab · <a href="https://google.clcl">asdasdasdasdasd</a></p>
-  </div>
-</footer>
-</body>
-</html>
+{% endif %}
+{% endfor %}

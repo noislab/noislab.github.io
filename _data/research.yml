@@ -1,0 +1,15 @@
+# ============================================================
+#  RESEARCH AREAS — shown on the home page.
+# ============================================================
+
+- title: Systems Neuroscience
+  body: We are interested in the interlink between the different circuits in the organism.
+
+- title: Brain states
+  body: We study how the brain transitions between different functional states.
+
+- title: Aperiodic EEG dynamics
+  body: We study the non-periodic fluctuations in EEG signals and their relationship to cognitive processes.
+
+- title: Computational modelling
+  body: We are interested in testing mechanistic explanations about the brain.

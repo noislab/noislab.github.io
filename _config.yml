@@ -1,0 +1,16 @@
+# ============================================================
+#  Site-wide settings — edit your lab name / description here
+# ============================================================
+title: NoisLab
+tagline: Neurobiology of Integrative Systems
+description: >-
+  Research lab focused on understanding the neural mechanisms
+  underlying integrative processes in the brain.
+email: lab@university.cl
+
+# Don't touch below unless you know what you're doing
+encoding: utf-8
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

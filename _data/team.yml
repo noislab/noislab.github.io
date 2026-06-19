@@ -1,0 +1,57 @@
+# ============================================================
+#  TEAM — add/remove people by editing this list.
+#  - Groups render in the order listed here.
+#  - photo: optional. Put a file in /images and use "/images/name.jpg".
+#           If left blank, an auto avatar from the name is used.
+#  - links: optional list of { label, url }.
+# ============================================================
+
+- group: Principal Investigator
+  members:
+    - name: Dr. Vicente Medel
+      role: Associate Professor
+      photo:
+      links:
+        - { label: Scholar, url: "https://scholar.google.com/citations?user=MuAn7LkAAAAJ" }
+        - { label: Email, url: "mailto:vicente.medel@gmail.com" }
+
+- group: Postdocs
+  members:
+    - name: Karla
+      role: Postdoctoral Researcher
+      photo:
+      links:
+        - { label: Scholar, url: "#" }
+
+- group: PhD Students
+  members:
+    - name: Tomás Bosch
+      role: PhD Student
+      links:
+        - { label: Scholar, url: "#" }
+    - name: Ana
+      role: PhD Student
+      links:
+        - { label: Scholar, url: "#" }
+    - name: Pato
+      role: PhD Student
+      links:
+        - { label: Scholar, url: "#" }
+
+- group: Master's Students
+  members:
+    - name: Lukas
+      role: MSc Student
+      links:
+        - { label: Scholar, url: "#" }
+
+- group: Undergraduate Students
+  members:
+    - name: Pipo
+      role: Undergrad Student
+      links:
+        - { label: Scholar, url: "#" }
+
+# Add former members here; the section hides itself when empty.
+- group: Alumni
+  members: []

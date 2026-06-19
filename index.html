@@ -1,35 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NoisLab</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<header>
-  <div class="container">
-    <h1><a href="index.html" style="color:#fff;text-decoration:none;">NoisLab</a></h1>
-    <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('open')" aria-label="Menu">☰</button>
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="team.html">Team</a>
-      <a href="publications.html">Publications</a>
-      <a href="news.html">News</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+---
+layout: default
+active: home
+---
 
 <section class="hero">
   <div class="container">
-    <h2>NoisLab</h2>
-    <p>Neurobiology of Integrative Systems</p>
-    <p>Our research focuses on understanding the neural mechanisms underlying integrative processes in the brain.</p>
-    </div>
+    <h2>{{ site.title }}</h2>
+    <p>{{ site.tagline }}</p>
+    <p>{{ site.description }}</p>
+  </div>
 </section>
 
 <section>
@@ -37,27 +16,12 @@
     <h2 class="section-title">Research Areas</h2>
     <p class="section-subtitle">Our main lines of work</p>
     <div class="news-grid">
-        <div class="news-card">
-        <h3>Work in progress</h3>
-        <p>.</p>
-      </div>
-      </div>
+      {% for area in site.data.research %}
       <div class="news-card">
-        <h3>Systems Neuroscience</h3>
-        <p>We are interested in the interlink between the different circuits in the organisms.</p>
+        <h3>{{ area.title }}</h3>
+        <p>{{ area.body }}</p>
       </div>
-        <div class="news-card">
-        <h3>Brain states</h3>
-        <p>.</p>
-      </div>
-      <div class="news-card">
-        <h3>Aperiodic EEG dynamics</h3>
-        <p>We study the non-periodic fluctuations in EEG signals and their relationship to cognitive processes.</p>
-      </div>
-      <div class="news-card">
-        <h3>Computational modelling</h3>
-        <p>We are interested in testing mechanistic explanations about the brain.</p>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -67,25 +31,14 @@
     <h2 class="section-title">Latest News</h2>
     <p class="section-subtitle">Recent updates</p>
     <div class="news-grid">
+      {% for item in site.data.news limit:2 %}
       <div class="news-card">
-        <div class="news-date">March 2026</div>
-        <h3>PUC Seminar </h3>
-        <p>How the brain transits between states</p>
+        <div class="news-date">{{ item.date | date: "%B %Y" }}</div>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.body }}</p>
       </div>
-      <div class="news-card">
-        <div class="news-date">January 2026</div>
-        <h3>New PostDoc joins the lab</h3>
-        <p>Welcome to !</p>
-      </div>
+      {% endfor %}
     </div>
-    <p style="margin-top:24px;"><a href="news.html">See all news →</a></p>
+    <p style="margin-top:24px;"><a href="{{ '/news.html' | relative_url }}">See all news →</a></p>
   </div>
 </section>
-
-<footer>
-  <div class="container">
-    <p>&copy; 2026 NoisLab · <a href="https://google.cl">lol poner something here</a></p>
-  </div>
-</footer>
-</body>
-</html>

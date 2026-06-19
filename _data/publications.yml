@@ -1,0 +1,22 @@
+# ============================================================
+#  PUBLICATIONS — add a paper as one item below.
+#  They auto-group by `year` (newest year first).
+#  links: optional list of { label, url } (PDF, Code, arXiv, DOI...).
+# ============================================================
+
+- year: 2026
+  title: "Title of the paper goes here"
+  authors: "Author A., Author B., Medel V."
+  venue: "Journal / Conference, 2026"
+  links:
+    - { label: PDF, url: "#" }
+    - { label: Code, url: "#" }
+    - { label: arXiv, url: "#" }
+
+- year: 2025
+  title: "Another paper title"
+  authors: "Author A., Medel V."
+  venue: "Journal name, 2025"
+  links:
+    - { label: PDF, url: "#" }
+    - { label: arXiv, url: "#" }
