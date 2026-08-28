@@ -6,26 +6,90 @@ active: team
 ---
 
 {% comment %} Edit people in _data/team.yml — no HTML needed. {% endcomment %}
-{% for group in site.data.team %}
-{% if group.members and group.members.size > 0 %}
-<section>
+<section class="team-section">
   <div class="container">
-    <h2 class="section-title">{{ group.group }}</h2>
+    {% comment %}#<p class="team-intro">aca texto iria</p> {% endcomment %}
+
     <div class="team-grid">
+    {% for group in site.data.team %}
+    {% if group.members and group.members.size > 0 %}
+    {% unless group.group == "Past Members" %}
       {% for m in group.members %}
-      <div class="member">
-        <img src="{% if m.photo %}{{ m.photo | relative_url }}{% else %}https://api.dicebear.com/9.x/initials/svg?seed={{ m.name | url_encode }}&backgroundColor=1a5276{% endif %}" alt="{{ m.name }}">
-        <h3>{{ m.name }}</h3>
-        <div class="role">{{ m.role }}</div>
-        {% if m.links %}
-        <div class="links">
-          {% for link in m.links %}<a href="{{ link.url }}">{{ link.label }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}
-        </div>
-        {% endif %}
-      </div>
+        <article class="member{% if group.group == "Principal Investigator" %} member-pi{% endif %}">
+          <div class="member-photo-frame">
+            {% if m.photo %}
+            <img
+              class="member-photo"
+              src="{{ m.photo | relative_url }}"
+              alt="Portrait of {{ m.name }}"
+              style="--photo-zoom: {{ m.photo_zoom | default: 1 }}; --photo-focus: {{ m.photo_position | default: 'center' }};"
+              loading="lazy"
+            >
+            {% else %}
+            <div class="member-photo member-placeholder" aria-hidden="true">{{ m.initials }}</div>
+            {% endif %}
+          </div>
+
+          <div class="member-content">
+            <h3>{{ m.name }}</h3>
+            <div class="role">{{ m.role }}</div>
+            {% if m.detail %}<p class="member-detail">{{ m.detail }}</p>{% endif %}
+
+            {% if m.links %}
+            <div class="links" aria-label="Profiles for {{ m.name }}">
+              {% for link in m.links %}
+              <a
+              class="profile-link"
+              data-profile="{{ link.label | downcase | replace: ' ', '-' }}"
+              href="{{ link.url }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {% include profile-icon.html label=link.label %}
+              <span>{{ link.label }}</span>
+            </a>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+        </article>
       {% endfor %}
+    {% endunless %}
+    {% endif %}
+    {% endfor %}
     </div>
+
+    {% for group in site.data.team %}
+    {% if group.group == "Past Members" and group.members and group.members.size > 0 %}
+    <div class="past-members">
+      <h2 class="section-title">Past Members</h2>
+      <div class="former-grid">
+        {% for m in group.members %}
+        <article class="former-member">
+          <h3>{{ m.name }}</h3>
+          <div class="role">{{ m.role }}</div>
+
+          {% if m.links %}
+          <div class="links" aria-label="Profiles for {{ m.name }}">
+            {% for link in m.links %}
+            <a
+              class="profile-link"
+              data-profile="{{ link.label | downcase | replace: ' ', '-' }}"
+              href="{{ link.url }}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {% include profile-icon.html label=link.label %}
+              <span>{{ link.label }}</span>
+            </a>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
   </div>
 </section>
-{% endif %}
-{% endfor %}

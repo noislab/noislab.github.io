@@ -4,19 +4,12 @@
 #  links: optional list of { label, url } (PDF, Code, arXiv, DOI...).
 # ============================================================
 
-- year: 2026
-  title: "Title of the paper goes here"
-  authors: "Author A., Author B., Medel V."
-  venue: "Journal / Conference, 2026"
-  links:
-    - { label: PDF, url: "#" }
-    - { label: Code, url: "#" }
-    - { label: arXiv, url: "#" }
 
-- year: 2025
-  title: "Another paper title"
-  authors: "Author A., Medel V."
-  venue: "Journal name, 2025"
+
+- year: 2023
+  title: "Complexity and 1/f slope jointly reflect brain states"
+  authors: "Medel, V. et al."
+  venue: "Scientific Reports"
   links:
-    - { label: PDF, url: "#" }
-    - { label: arXiv, url: "#" }
+    - { label: Link, url: "https://www.nature.com/articles/s41598-023-47316-0" }
+

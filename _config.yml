@@ -1,11 +1,13 @@
 # ============================================================
 #  Site-wide settings — edit your lab name / description here
 # ============================================================
-title: NoisLab
+title: NoISLab
+home_title: Laboratory of Neurobiology of Integrative Systems
 tagline: Neurobiology of Integrative Systems
 description: >-
-  Research lab focused on understanding the neural mechanisms
-  underlying integrative processes in the brain.
+  Our work combines neural and physiological signals to understand how integrative brain and body processes
+  unfold across different contexts. With novel approaches, we investigate brain states, cognition, arousal, and behavior using EEG, fMRI,
+  intracranial EEG (iEEG), eye tracking, and electrocardiography data.
 email: lab@university.cl
 
 # Don't touch below unless you know what you're doing

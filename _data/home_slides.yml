@@ -1,0 +1,11 @@
+# Homepage carousel
+# Add, remove, or reorder slides here.
+# Use wide lab/activity photos when they become available.
+
+- image: /images/location/quienes-somos-1.jpg
+  alt: Facultad Biologia
+  position: 50% 42%
+
+- image: /images/location/PHOTO-2026-06-17-14-57-37.jpg
+  alt: Foto 2026
+  position: 50% 30%

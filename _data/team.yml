@@ -1,57 +1,125 @@
 # ============================================================
-#  TEAM — add/remove people by editing this list.
-#  - Groups render in the order listed here.
-#  - photo: optional. Put a file in /images and use "/images/name.jpg".
-#           If left blank, an auto avatar from the name is used.
-#  - links: optional list of { label, url }.
+# TEAM
+# - Groups and members render in the order listed here.
+# - Put photos in /images/team and use a site-relative path.
+# - photo_position moves the crop (for example: 50% 35%).
+# - photo_zoom controls distance: 1 normal, 1.15 closer, 0.9 farther.
+# - detail and links are optional.
 # ============================================================
 
 - group: Principal Investigator
   members:
-    - name: Dr. Vicente Medel
-      role: Associate Professor
-      photo:
+    - name: Vicente Medel
+      role: Principal Investigator
+      detail: Associate Professor
+      photo: /images/team/vicente-medel.jpg
+      photo_position: 50% 42%
       links:
-        - { label: Scholar, url: "https://scholar.google.com/citations?user=MuAn7LkAAAAJ" }
-        - { label: Email, url: "mailto:vicente.medel@gmail.com" }
+        - { label: Scholar, url: "https://scholar.google.cl/citations?user=MuAn7LkAAAAJ" }
+        - { label: ORCID, url: "https://orcid.org/0000-0003-2443-8683" }
+        - { label: LinkedIn, url: "https://www.linkedin.com/in/vicente-medel-3929606b/" }
 
-- group: Postdocs
+- group: Postdoctoral Researchers
   members:
-    - name: Karla
+    - name: Karla Schwarz
       role: Postdoctoral Researcher
-      photo:
+      photo: /images/team/karla-schwarz.jpg
+      photo_position: 50% 32%
       links:
-        - { label: Scholar, url: "#" }
+        - { label: Scholar, url: "https://scholar.google.com/citations?user=Cgowlw0AAAAJ&hl=es&oi=ao" }
+        - { label: ORCID, url: "https://orcid.org/0000-0002-2503-3402" }
+        - { label: LinkedIn, url: "https://www.linkedin.com/in/karla-schwarz-5355b4132/" }
+
+    - name: Simón San Martin
+      role: Postdoctoral Researcher
+      photo: /images/team/simon-san-martin.jpg
+      photo_position: 50% 38%
+      links:
+        - { label: Scholar, url: "https://scholar.google.com/citations?user=N4FrF8AAAAAJ&hl=es&authuser=2" }
+        - { label: ORCID, url: "https://orcid.org/0009-0001-2424-091X" }
+        - { label: ResearchGate, url: "https://www.researchgate.net/profile/Simon-San-Martin-3" }
+        - { label: LinkedIn, url: "https://www.linkedin.com/in/simonsanmartin/" }
+
+    - name: Ivana Gajardo
+      role: Postdoctoral Researcher
+      photo: /images/team/ivana-gajardo.jpg
+      photo_position: 50% 38%
+      links:
+        - { label: Scholar, url: "https://scholar.google.cl/citations?user=G03-r3YAAAAJ&hl=en&oi=ao" }
+        - { label: ORCID, url: "https://orcid.org/0000-0001-5728-193X" }
+        - { label: ResearchGate, url: "https://www.researchgate.net/profile/Ivana-Gajardo-Urrutia/research" }
+        - { label: LinkedIn, url: "https://www.linkedin.com/in/ivana-gajardo-urrutia-21b7022a7/" }
 
 - group: PhD Students
   members:
     - name: Tomás Bosch
       role: PhD Student
+      detail: Co-supervised by Tomás Ossandón
+      photo: /images/team/tomas-bosch.jpg
+      photo_position: 70% 80%
+      photo_zoom: 1.15
       links:
-        - { label: Scholar, url: "#" }
-    - name: Ana
+        - { label: ORCID, url: "https://orcid.org/0009-0004-8166-3603" }
+
+    - name: Lukas Valenzuela
+      role: MSc Student & Research Assistant
+      photo: /images/team/lukas-valenzuela.jpg
+      photo_position: 50% 5%
+      links:
+        - { label: Scholar, url: "https://scholar.google.cl/citations?user=8hII7pYAAAAJ&hl=en" }
+        - { label: ORCID, url: "https://orcid.org/0009-0000-4227-303X" }
+
+    - name: Patricio Riquelme
       role: PhD Student
+      detail: Co-supervised by Patricio Orio and Andrea Slachevsky
+      photo: /images/team/patricio-riquelme.jpg
+      photo_position: 50% 60%
+      photo_zoom: 2.2
       links:
-        - { label: Scholar, url: "#" }
-    - name: Pato
+        - { label: ORCID, url: "https://orcid.org/0000-0003-3367-4311" }
+        - { label: UChile Profile, url: "https://portafolio-academico.uchile.cl/perfil/73527-Patricio-Felipe-Riquelme-Contreras" }
+
+
+
+    - name: Ana María Castro-Laguardia
       role: PhD Student
+      detail: Co-supervised by Agustín Ibañez
+      photo: /images/team/ana-maria-castro-laguardia.jpg
+      photo_position: 50% 40%
       links:
-        - { label: Scholar, url: "#" }
+        - { label: Scholar, url: "https://scholar.google.com/citations?user=BbGvYgcAAAAJ&hl=en" }
+        - { label: ORCID, url: "https://orcid.org/0000-0002-9132-3651" }
 
-- group: Master's Students
+    - name: María Pineda
+      role: PhD Student
+      detail: Co-supervised by Patricio Orio
+      initials: MP
+
+- group: Research Staff
   members:
-    - name: Lukas
-      role: MSc Student
-      links:
-        - { label: Scholar, url: "#" }
+    - name: Mabel Barceló
+      role: Research Assistant
+      photo: /images/team/mabel-barcelo.jpg
+      photo_position: 50% 35%
 
-- group: Undergraduate Students
+#%- group: Master's Students
+#%  members:
+
+
+- group: Past Members
   members:
-    - name: Pipo
-      role: Undergrad Student
+    - name: Daniel Franco-O’Byrne
+      role: Former Postdoctoral Researcher
+      initials: DF
       links:
-        - { label: Scholar, url: "#" }
+        - { label: Scholar, url: "https://scholar.google.cl/citations?hl=es&user=Iu5miPvpjbQC" }
 
-# Add former members here; the section hides itself when empty.
-- group: Alumni
-  members: []
+    - name: Felipe González
+      role: Former Undergraduate Student
+      initials: FG
+
+    - name: Victor Vidal
+      role: Former Master's Student
+      initials: VV
+      links:
+        - { label: Scholar, url: "https://scholar.google.cl/citations?hl=es&user=9FywfP0AAAAJ" }

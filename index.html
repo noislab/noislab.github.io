@@ -3,26 +3,118 @@ layout: default
 active: home
 ---
 
-<section class="hero">
-  <div class="container">
-    <h2>{{ site.title }}</h2>
-    <p>{{ site.tagline }}</p>
-    <p>{{ site.description }}</p>
+<section class="home-hero">
+  <div class="home-hero-copy">
+    <div class="home-hero-copy-inner">
+      <p class="home-eyebrow">{{ site.title }}</p>
+      <h2>{{ site.home_title }}</h2>
+      <p class="home-description">{{ site.description }}</p>
+    </div>
+  </div>
+
+  <div class="home-carousel" data-carousel aria-roledescription="carousel" aria-label="NoisLab highlights">
+    <div class="carousel-slides" aria-live="off">
+      {% for slide in site.data.home_slides %}
+      <figure class="carousel-slide{% if forloop.first %} is-active{% endif %}" aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}">
+        <img
+          src="{{ slide.image | relative_url }}"
+          alt="{{ slide.alt }}"
+          style="object-position: {{ slide.position | default: 'center' }};"
+          {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}
+        >
+      </figure>
+      {% endfor %}
+    </div>
+
+    {% if site.data.home_slides.size > 1 %}
+    <button class="carousel-control carousel-prev" type="button" aria-label="Previous image" data-carousel-prev>‹</button>
+    <button class="carousel-control carousel-next" type="button" aria-label="Next image" data-carousel-next>›</button>
+    <div class="carousel-dots" aria-label="Choose an image">
+      {% for slide in site.data.home_slides %}
+      <button
+        type="button"
+        class="carousel-dot{% if forloop.first %} is-active{% endif %}"
+        aria-label="Show image {{ forloop.index }}"
+        aria-current="{% if forloop.first %}true{% else %}false{% endif %}"
+        data-carousel-dot="{{ forloop.index0 }}"
+      ></button>
+      {% endfor %}
+    </div>
+    {% endif %}
   </div>
 </section>
 
-<section>
+<section class="research-section" id="research">
   <div class="container">
-    <h2 class="section-title">Research Areas</h2>
-    <p class="section-subtitle">Our main lines of work</p>
-    <div class="news-grid">
+    <div class="research-heading">
+      <h2 class="section-title">Research Areas</h2>
+    </div>
+
+    <div class="research-grid">
       {% for area in site.data.research %}
-      <div class="news-card">
-        <h3>{{ area.title }}</h3>
-        <p>{{ area.body }}</p>
-      </div>
+      <article class="research-card">
+        <div class="research-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img">
+            {% case area.icon %}
+            {% when "systems" %}
+            <circle cx="24" cy="9" r="4"></circle>
+            <circle cx="10" cy="36" r="4"></circle>
+            <circle cx="38" cy="36" r="4"></circle>
+            <path d="M22 13 12 32M26 13l10 19M14 36h20"></path>
+            {% when "states" %}
+            <path d="M5 28c5 0 5-14 10-14s5 20 10 20 5-16 10-16 5 10 8 10"></path>
+            <path d="M5 38h38"></path>
+            {% when "eeg" %}
+            <path d="M4 26h8l3-10 5 20 5-27 5 31 4-14h10"></path>
+            {% when "modelling" %}
+            <rect x="6" y="8" width="36" height="32" rx="2"></rect>
+            <path d="m16 19-5 5 5 5M32 19l5 5-5 5M27 15l-6 18"></path>
+            {% else %}
+            <circle cx="24" cy="24" r="15"></circle>
+            {% endcase %}
+          </svg>
+        </div>
+        <div>
+          <h3>{{ area.title }}</h3>
+          {% if area.body %}<p>{{ area.body }}</p>{% endif %}
+        </div>
+      </article>
       {% endfor %}
     </div>
+  </div>
+</section>
+
+<section class="home-team" id="team">
+  <div class="container">
+    <h2 class="section-title">Our Team</h2>
+    <p class="section-subtitle"></p>
+
+    <div class="home-team-grid">
+      {% for group in site.data.team %}
+      {% unless group.group == "Past Members" %}
+        {% for m in group.members %}
+        <article class="home-member">
+          <div class="home-member-photo">
+            {% if m.photo %}
+            <img
+              src="{{ m.photo | relative_url }}"
+              alt="Portrait of {{ m.name }}"
+              style="--photo-zoom: {{ m.photo_zoom | default: 1 }}; --photo-focus: {{ m.photo_position | default: 'center' }};"
+              loading="lazy"
+            >
+            {% else %}
+            <div class="home-member-placeholder" aria-hidden="true">{{ m.initials }}</div>
+            {% endif %}
+          </div>
+          <h3>{{ m.name }}</h3>
+          <p>{{ m.role }}</p>
+        </article>
+        {% endfor %}
+      {% endunless %}
+      {% endfor %}
+    </div>
+
+    <a class="section-link" href="{{ '/team.html' | relative_url }}">View members</a>
   </div>
 </section>
 
@@ -39,6 +131,8 @@ active: home
       </div>
       {% endfor %}
     </div>
-    <p style="margin-top:24px;"><a href="{{ '/news.html' | relative_url }}">See all news →</a></p>
+    <a class="section-link" href="{{ '/news.html' | relative_url }}">See all news →</a>
   </div>
 </section>
+
+<script src="{{ '/carousel.js' | relative_url }}" defer></script>

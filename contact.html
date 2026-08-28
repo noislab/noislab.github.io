@@ -4,32 +4,47 @@ title: Contact
 active: contact
 ---
 
-<section>
-  <div class="container" style="max-width:700px;">
-    <h2 class="section-title">Get in Touch</h2>
-
-    <div class="news-card" style="margin-bottom:24px;">
-      <h3>Location</h3>
-      <p style="margin-top:8px;">Pontificia Universidad Católica<br>Facultad de Ciencias Biológicas<br>Piso 4<br>Santiago, Chile</p>
+<section class="contact-section">
+  <div class="container contact-container">
+    <div class="contact-heading">
+      <h2 class="section-title">Get in Touch</h2>
+      <p>We are located at the Faculty of Biological Sciences in PUC, Santiago, Chile.</p>
     </div>
 
-    <div class="news-card" style="margin-bottom:24px;">
-      <h3>📧 Email</h3>
-      <p style="margin-top:8px;"><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
-    </div>
+    <div class="contact-layout">
+      <div class="contact-details">
+        <div class="contact-block">
+          <span class="contact-label">Location</span>
+          <h3>Faculty of Biological Sciences UC</h3>
+          <p>Campus Casa Central · 4th floor<br>Av. Libertador Bernardo O’Higgins 340<br>Santiago, Chile</p>
+        </div>
 
-    <div class="news-card" style="margin-bottom:24px;">
-      <h3>Social</h3>
-      <p style="margin-top:8px;">
-        <a href="#">Twitter/X</a> ·
-        <a href="#">GitHub</a> ·
-        <a href="#">Google Scholar</a>
-      </p>
-    </div>
+        <div class="contact-block">
+          <span class="contact-label">Email</span>
+          <h3>Write to us</h3>
+          <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+        </div>
 
-    <div class="news-card">
-      <h3>Prospective Students</h3>
-      <p style="margin-top:8px;">If you're interested in joining the lab as a graduate student or postdoc, please email the lab.</p>
+        <div class="contact-block">
+          <span class="contact-label">Join the lab</span>
+          <h3>Prospective students</h3>
+          <p>If you're interested in joining the lab contact us!</p>
+        </div>
+      </div>
+
+      <div class="contact-map">
+        <iframe
+          title="Map showing the Faculty of Biological Sciences UC at Campus Casa Central"
+          src="https://www.google.com/maps?q=Facultad+de+Ciencias+Biol%C3%B3gicas+PUC,+Av.+Libertador+Bernardo+O%27Higgins+340,+Santiago,+Chile&amp;output=embed"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="contact-map-footer">
+          <p><strong>Facultad de Ciencias Biológicas UC</strong><br>Casa Central · Alameda 340</p>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Facultad+de+Ciencias+Biol%C3%B3gicas+PUC%2C+Av.+Libertador+Bernardo+O%27Higgins+340%2C+Santiago%2C+Chile" target="_blank" rel="noopener noreferrer">Open in Google Maps ↗</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
